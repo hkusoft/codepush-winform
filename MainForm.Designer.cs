@@ -58,7 +58,7 @@
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.ReleaseDetailPanel = new System.Windows.Forms.Panel();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.ReleaseDetailPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.MainToolbar24.SuspendLayout();
             this.Container.SuspendLayout();
             this.AppPanel.SuspendLayout();
@@ -312,6 +312,7 @@
             this.ReleaseList.Name = "ReleaseList";
             this.ReleaseList.Size = new System.Drawing.Size(145, 361);
             this.ReleaseList.TabIndex = 4;
+            this.ReleaseList.SelectedIndexChanged += new System.EventHandler(this.ReleaseList_SelectedIndexChanged);
             // 
             // toolStrip6
             // 
@@ -356,22 +357,21 @@
             // 
             // ReleaseDetailPanel
             // 
-            this.ReleaseDetailPanel.Controls.Add(this.listBox4);
+            this.ReleaseDetailPanel.Controls.Add(this.ReleaseDetailPropertyGrid);
             this.ReleaseDetailPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReleaseDetailPanel.Location = new System.Drawing.Point(451, 3);
             this.ReleaseDetailPanel.Name = "ReleaseDetailPanel";
             this.ReleaseDetailPanel.Size = new System.Drawing.Size(306, 411);
             this.ReleaseDetailPanel.TabIndex = 6;
             // 
-            // listBox4
+            // ReleaseDetailPropertyGrid
             // 
-            this.listBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 17;
-            this.listBox4.Location = new System.Drawing.Point(0, 0);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(306, 411);
-            this.listBox4.TabIndex = 5;
+            this.ReleaseDetailPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReleaseDetailPropertyGrid.LineColor = System.Drawing.SystemColors.ControlDark;
+            this.ReleaseDetailPropertyGrid.Location = new System.Drawing.Point(0, 0);
+            this.ReleaseDetailPropertyGrid.Name = "ReleaseDetailPropertyGrid";
+            this.ReleaseDetailPropertyGrid.Size = new System.Drawing.Size(306, 411);
+            this.ReleaseDetailPropertyGrid.TabIndex = 6;
             // 
             // MainForm
             // 
@@ -433,7 +433,6 @@
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.Panel ReleaseDetailPanel;
-        private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.ToolStrip toolStrip5;
         private System.Windows.Forms.ToolStripButton toolStripButton13;
         private System.Windows.Forms.ToolStrip toolStrip6;
@@ -443,6 +442,7 @@
         private System.Windows.Forms.ToolStrip toolStrip4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ListView AppList;
+        private System.Windows.Forms.PropertyGrid ReleaseDetailPropertyGrid;
     }
 }
 

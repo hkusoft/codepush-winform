@@ -87,12 +87,7 @@ namespace codepush_winform
                 Debug.WriteLine(Apps);
             });
 
-            t.Wait();
-
-            foreach (var item in Apps)
-            {
-                listBox4.Items.Add(item.display_name + " " + item.platform + " " + item.os);
-            }
+            t.Wait();            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -122,6 +117,18 @@ namespace codepush_winform
                 {
                     var selected_releases = all_releases[selected_deployment];
                     ReleaseList.DataSource = selected_releases;
+                }
+            }
+        }
+
+        private void ReleaseList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ReleaseList.SelectedItems.Count > 0)
+            {
+                var selected_release = ReleaseList.SelectedItems[0] as Release;
+                if (selected_release != null)
+                {
+                    ReleaseDetailPropertyGrid.SelectedObject = selected_release;
                 }
             }
         }
