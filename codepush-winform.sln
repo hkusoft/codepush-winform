@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "codepush-winform", "codepush-winform.csproj", "{791F4838-50AF-4BB1-89CC-69F2729AD87A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "codepush-winformTests", "..\codepush-winformTests\codepush-winformTests.csproj", "{2C862B84-65A3-48A2-82ED-8006B107CA24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{791F4838-50AF-4BB1-89CC-69F2729AD87A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{791F4838-50AF-4BB1-89CC-69F2729AD87A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{791F4838-50AF-4BB1-89CC-69F2729AD87A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C862B84-65A3-48A2-82ED-8006B107CA24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C862B84-65A3-48A2-82ED-8006B107CA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C862B84-65A3-48A2-82ED-8006B107CA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C862B84-65A3-48A2-82ED-8006B107CA24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16197BFD-115B-462C-858F-6C1E58D08F87}
 	EndGlobalSection
 EndGlobal
