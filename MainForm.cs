@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static codepush_winform.helper.Http;
 
 namespace codepush_winform
 {
@@ -21,9 +22,19 @@ namespace codepush_winform
 
         private void Login_Click(object sender, EventArgs e)
         {
-            var output = CodepushHelper.Whoami();
-            Debug.WriteLine(output);
-            listBox4.Items.Add(output);
+            List<App> Apps = null;
+            Task t =Task.Run(() =>
+            {
+                Apps = Http.GetAppsAsync().Result;
+                Debug.WriteLine(Apps);
+            });
+
+            t.Wait();
+
+            foreach (var item in Apps)
+            {
+                listBox4.Items.Add(item.display_name + " " + item.platform + " " + item.os);
+            }
         }
     }
 }
