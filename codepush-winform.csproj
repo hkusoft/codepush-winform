@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="helper\Deployment.cs" />
+    <Compile Include="helper\Release.cs" />
     <Compile Include="Poco\App.cs" />
     <Compile Include="helper\CodepushHelper.cs" />
     <Compile Include="helper\Http.cs" />

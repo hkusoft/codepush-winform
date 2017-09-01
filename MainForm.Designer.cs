@@ -39,6 +39,8 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.Container = new System.Windows.Forms.TableLayoutPanel();
             this.AppPanel = new System.Windows.Forms.Panel();
+            this.AppList = new System.Windows.Forms.ListView();
+            this.TabImageList = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -57,14 +59,6 @@
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.ReleaseDetailPanel = new System.Windows.Forms.Panel();
             this.listBox4 = new System.Windows.Forms.ListBox();
-            this.TabImageList = new System.Windows.Forms.ImageList(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Android = new System.Windows.Forms.LinkLabel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.AndroidAppList = new System.Windows.Forms.ListBox();
-            this.iOSAppList = new System.Windows.Forms.ListBox();
             this.MainToolbar24.SuspendLayout();
             this.Container.SuspendLayout();
             this.AppPanel.SuspendLayout();
@@ -77,9 +71,6 @@
             this.toolStrip6.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.ReleaseDetailPanel.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainToolbar24
@@ -152,9 +143,9 @@
             // Container
             // 
             this.Container.ColumnCount = 4;
-            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.25292F));
-            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.74708F));
-            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.15825F));
+            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.84175F));
+            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
             this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 311F));
             this.Container.Controls.Add(this.AppPanel, 0, 0);
             this.Container.Controls.Add(this.DeploymentPanel, 1, 0);
@@ -170,14 +161,33 @@
             // 
             // AppPanel
             // 
-            this.AppPanel.Controls.Add(this.tableLayoutPanel1);
+            this.AppPanel.Controls.Add(this.AppList);
             this.AppPanel.Controls.Add(this.toolStrip5);
             this.AppPanel.Controls.Add(this.toolStrip1);
             this.AppPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AppPanel.Location = new System.Drawing.Point(3, 3);
             this.AppPanel.Name = "AppPanel";
-            this.AppPanel.Size = new System.Drawing.Size(180, 411);
+            this.AppPanel.Size = new System.Drawing.Size(140, 411);
             this.AppPanel.TabIndex = 3;
+            // 
+            // AppList
+            // 
+            this.AppList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AppList.Location = new System.Drawing.Point(0, 50);
+            this.AppList.Name = "AppList";
+            this.AppList.Size = new System.Drawing.Size(140, 361);
+            this.AppList.SmallImageList = this.TabImageList;
+            this.AppList.TabIndex = 5;
+            this.AppList.UseCompatibleStateImageBehavior = false;
+            this.AppList.View = System.Windows.Forms.View.List;
+            this.AppList.SelectedIndexChanged += new System.EventHandler(this.AppList_SelectedIndexChanged);
+            // 
+            // TabImageList
+            // 
+            this.TabImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("TabImageList.ImageStream")));
+            this.TabImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.TabImageList.Images.SetKeyName(0, "android16.png");
+            this.TabImageList.Images.SetKeyName(1, "ios16.png");
             // 
             // toolStrip5
             // 
@@ -187,7 +197,7 @@
             this.toolStripButton13});
             this.toolStrip5.Location = new System.Drawing.Point(0, 25);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(180, 25);
+            this.toolStrip5.Size = new System.Drawing.Size(140, 25);
             this.toolStrip5.TabIndex = 4;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -209,7 +219,7 @@
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(180, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(140, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -226,9 +236,9 @@
             this.DeploymentPanel.Controls.Add(this.toolStrip2);
             this.DeploymentPanel.Controls.Add(this.toolStrip4);
             this.DeploymentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeploymentPanel.Location = new System.Drawing.Point(189, 3);
+            this.DeploymentPanel.Location = new System.Drawing.Point(149, 3);
             this.DeploymentPanel.Name = "DeploymentPanel";
-            this.DeploymentPanel.Size = new System.Drawing.Size(144, 411);
+            this.DeploymentPanel.Size = new System.Drawing.Size(145, 411);
             this.DeploymentPanel.TabIndex = 4;
             // 
             // DeploymentList
@@ -238,8 +248,9 @@
             this.DeploymentList.ItemHeight = 17;
             this.DeploymentList.Location = new System.Drawing.Point(0, 50);
             this.DeploymentList.Name = "DeploymentList";
-            this.DeploymentList.Size = new System.Drawing.Size(144, 361);
+            this.DeploymentList.Size = new System.Drawing.Size(145, 361);
             this.DeploymentList.TabIndex = 4;
+            this.DeploymentList.SelectedIndexChanged += new System.EventHandler(this.DeploymentList_SelectedIndexChanged);
             // 
             // toolStrip2
             // 
@@ -249,7 +260,7 @@
             this.toolStripButton6});
             this.toolStrip2.Location = new System.Drawing.Point(0, 25);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(144, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(145, 25);
             this.toolStrip2.TabIndex = 6;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -270,7 +281,7 @@
             this.toolStripLabel2});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(144, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(145, 25);
             this.toolStrip4.TabIndex = 5;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -287,9 +298,9 @@
             this.ReleasePanel.Controls.Add(this.toolStrip6);
             this.ReleasePanel.Controls.Add(this.toolStrip3);
             this.ReleasePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReleasePanel.Location = new System.Drawing.Point(339, 3);
+            this.ReleasePanel.Location = new System.Drawing.Point(300, 3);
             this.ReleasePanel.Name = "ReleasePanel";
-            this.ReleasePanel.Size = new System.Drawing.Size(106, 411);
+            this.ReleasePanel.Size = new System.Drawing.Size(145, 411);
             this.ReleasePanel.TabIndex = 5;
             // 
             // ReleaseList
@@ -299,7 +310,7 @@
             this.ReleaseList.ItemHeight = 17;
             this.ReleaseList.Location = new System.Drawing.Point(0, 50);
             this.ReleaseList.Name = "ReleaseList";
-            this.ReleaseList.Size = new System.Drawing.Size(106, 361);
+            this.ReleaseList.Size = new System.Drawing.Size(145, 361);
             this.ReleaseList.TabIndex = 4;
             // 
             // toolStrip6
@@ -310,7 +321,7 @@
             this.toolStripButton10});
             this.toolStrip6.Location = new System.Drawing.Point(0, 25);
             this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(106, 25);
+            this.toolStrip6.Size = new System.Drawing.Size(145, 25);
             this.toolStrip6.TabIndex = 5;
             this.toolStrip6.Text = "toolStrip6";
             // 
@@ -332,7 +343,7 @@
             this.toolStripLabel3});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(106, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(145, 25);
             this.toolStrip3.TabIndex = 3;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -361,90 +372,6 @@
             this.listBox4.Name = "listBox4";
             this.listBox4.Size = new System.Drawing.Size(306, 411);
             this.listBox4.TabIndex = 5;
-            // 
-            // TabImageList
-            // 
-            this.TabImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("TabImageList.ImageStream")));
-            this.TabImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.TabImageList.Images.SetKeyName(0, "android16.png");
-            this.TabImageList.Images.SetKeyName(1, "ios16.png");
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 50);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(180, 361);
-            this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.AndroidAppList);
-            this.panel1.Controls.Add(this.Android);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(174, 174);
-            this.panel1.TabIndex = 2;
-            // 
-            // Android
-            // 
-            this.Android.AutoSize = true;
-            this.Android.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Android.Location = new System.Drawing.Point(0, 0);
-            this.Android.Name = "Android";
-            this.Android.Size = new System.Drawing.Size(93, 19);
-            this.Android.TabIndex = 1;
-            this.Android.TabStop = true;
-            this.Android.Text = "Android Apps";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.iOSAppList);
-            this.panel2.Controls.Add(this.linkLabel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 183);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(174, 175);
-            this.panel2.TabIndex = 3;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.linkLabel1.Location = new System.Drawing.Point(0, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(65, 19);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "iOS Apps";
-            // 
-            // AndroidAppList
-            // 
-            this.AndroidAppList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AndroidAppList.FormattingEnabled = true;
-            this.AndroidAppList.ItemHeight = 17;
-            this.AndroidAppList.Location = new System.Drawing.Point(0, 19);
-            this.AndroidAppList.Name = "AndroidAppList";
-            this.AndroidAppList.Size = new System.Drawing.Size(174, 155);
-            this.AndroidAppList.TabIndex = 2;
-            // 
-            // iOSAppList
-            // 
-            this.iOSAppList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iOSAppList.FormattingEnabled = true;
-            this.iOSAppList.ItemHeight = 17;
-            this.iOSAppList.Location = new System.Drawing.Point(0, 19);
-            this.iOSAppList.Name = "iOSAppList";
-            this.iOSAppList.Size = new System.Drawing.Size(174, 156);
-            this.iOSAppList.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -480,11 +407,6 @@
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             this.ReleaseDetailPanel.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,13 +442,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStrip toolStrip4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListBox AndroidAppList;
-        private System.Windows.Forms.LinkLabel Android;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListBox iOSAppList;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ListView AppList;
     }
 }
 

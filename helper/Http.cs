@@ -53,5 +53,24 @@ namespace codepush_winform.helper
             var output = JsonConvert.DeserializeObject<List<App>>(json);
             return output;
         }
+
+        public static async Task<List<Deployment>> GetDeploymentsAsync(string owner_name, string app_name)
+        {
+            //v0.1/apps/cityuxykou/idemo/deployments'
+            var path = string.Format("v0.1/apps/{0}/{1}/deployments", owner_name, app_name);
+            var json = await GetAsync(path);
+            var output = JsonConvert.DeserializeObject<List<Deployment>>(json);
+            return output;
+        }
+
+        //GET /v0.1/apps/{owner_name}/{app_name}/deployments/{deployment_name}/releases
+        public static async Task<List<Release>> GetReleasesAsync(string owner_name, string app_name, string deployment_name)
+        {
+            //v0.1/apps/cityuxykou/idemo/deployments'
+            var path = string.Format("v0.1/apps/{0}/{1}/deployments/{2}/releases", owner_name, app_name, deployment_name);
+            var json = await GetAsync(path);
+            var output = JsonConvert.DeserializeObject<List<Release>>(json);
+            return output;
+        }
     }
 }
