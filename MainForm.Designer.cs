@@ -37,45 +37,49 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.AppPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.Container = new System.Windows.Forms.TableLayoutPanel();
+            this.AppPanel = new System.Windows.Forms.Panel();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.DeploymentPanel = new System.Windows.Forms.Panel();
+            this.DeploymentList = new System.Windows.Forms.ListBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.ReleasePanel = new System.Windows.Forms.Panel();
+            this.ReleaseList = new System.Windows.Forms.ListBox();
             this.toolStrip6 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.ReleaseDetailPanel = new System.Windows.Forms.Panel();
             this.listBox4 = new System.Windows.Forms.ListBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TabImageList = new System.Windows.Forms.ImageList(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Android = new System.Windows.Forms.LinkLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.AndroidAppList = new System.Windows.Forms.ListBox();
+            this.iOSAppList = new System.Windows.Forms.ListBox();
             this.MainToolbar24.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.Container.SuspendLayout();
             this.AppPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.toolStrip5.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.DeploymentPanel.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStrip4.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.ReleasePanel.SuspendLayout();
             this.toolStrip6.SuspendLayout();
             this.toolStrip3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.ReleaseDetailPanel.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainToolbar24
@@ -145,71 +149,35 @@
             this.toolStripButton5.Size = new System.Drawing.Size(32, 32);
             this.toolStripButton5.Text = "toolStripButton5";
             // 
-            // tabControl1
+            // Container
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.ImageList = this.TabImageList;
-            this.tabControl1.Location = new System.Drawing.Point(0, 35);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(760, 417);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.AppPanel);
-            this.tabPage1.ImageIndex = 0;
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(752, 387);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Android";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.Container.ColumnCount = 4;
+            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.25292F));
+            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.74708F));
+            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 311F));
+            this.Container.Controls.Add(this.AppPanel, 0, 0);
+            this.Container.Controls.Add(this.DeploymentPanel, 1, 0);
+            this.Container.Controls.Add(this.ReleasePanel, 2, 0);
+            this.Container.Controls.Add(this.ReleaseDetailPanel, 3, 0);
+            this.Container.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Container.Location = new System.Drawing.Point(0, 35);
+            this.Container.Name = "Container";
+            this.Container.RowCount = 1;
+            this.Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.Container.Size = new System.Drawing.Size(760, 417);
+            this.Container.TabIndex = 0;
             // 
             // AppPanel
             // 
-            this.AppPanel.ColumnCount = 4;
-            this.AppPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.25292F));
-            this.AppPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.74708F));
-            this.AppPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
-            this.AppPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 310F));
-            this.AppPanel.Controls.Add(this.panel1, 0, 0);
-            this.AppPanel.Controls.Add(this.panel2, 1, 0);
-            this.AppPanel.Controls.Add(this.panel3, 2, 0);
-            this.AppPanel.Controls.Add(this.panel4, 3, 0);
+            this.AppPanel.Controls.Add(this.tableLayoutPanel1);
+            this.AppPanel.Controls.Add(this.toolStrip5);
+            this.AppPanel.Controls.Add(this.toolStrip1);
             this.AppPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AppPanel.Location = new System.Drawing.Point(4, 5);
+            this.AppPanel.Location = new System.Drawing.Point(3, 3);
             this.AppPanel.Name = "AppPanel";
-            this.AppPanel.RowCount = 1;
-            this.AppPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.AppPanel.Size = new System.Drawing.Size(744, 377);
-            this.AppPanel.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.listBox1);
-            this.panel1.Controls.Add(this.toolStrip5);
-            this.panel1.Controls.Add(this.toolStrip1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 371);
-            this.panel1.TabIndex = 3;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(0, 50);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(171, 321);
-            this.listBox1.TabIndex = 3;
+            this.AppPanel.Size = new System.Drawing.Size(180, 411);
+            this.AppPanel.TabIndex = 3;
             // 
             // toolStrip5
             // 
@@ -219,7 +187,7 @@
             this.toolStripButton13});
             this.toolStrip5.Location = new System.Drawing.Point(0, 25);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(171, 25);
+            this.toolStrip5.Size = new System.Drawing.Size(180, 25);
             this.toolStrip5.TabIndex = 4;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -241,7 +209,7 @@
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(171, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(180, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -252,26 +220,26 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(29, 22);
             this.toolStripLabel1.Text = "App";
             // 
-            // panel2
+            // DeploymentPanel
             // 
-            this.panel2.Controls.Add(this.listBox2);
-            this.panel2.Controls.Add(this.toolStrip2);
-            this.panel2.Controls.Add(this.toolStrip4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(180, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(138, 371);
-            this.panel2.TabIndex = 4;
+            this.DeploymentPanel.Controls.Add(this.DeploymentList);
+            this.DeploymentPanel.Controls.Add(this.toolStrip2);
+            this.DeploymentPanel.Controls.Add(this.toolStrip4);
+            this.DeploymentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DeploymentPanel.Location = new System.Drawing.Point(189, 3);
+            this.DeploymentPanel.Name = "DeploymentPanel";
+            this.DeploymentPanel.Size = new System.Drawing.Size(144, 411);
+            this.DeploymentPanel.TabIndex = 4;
             // 
-            // listBox2
+            // DeploymentList
             // 
-            this.listBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 17;
-            this.listBox2.Location = new System.Drawing.Point(0, 50);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(138, 321);
-            this.listBox2.TabIndex = 4;
+            this.DeploymentList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DeploymentList.FormattingEnabled = true;
+            this.DeploymentList.ItemHeight = 17;
+            this.DeploymentList.Location = new System.Drawing.Point(0, 50);
+            this.DeploymentList.Name = "DeploymentList";
+            this.DeploymentList.Size = new System.Drawing.Size(144, 361);
+            this.DeploymentList.TabIndex = 4;
             // 
             // toolStrip2
             // 
@@ -281,7 +249,7 @@
             this.toolStripButton6});
             this.toolStrip2.Location = new System.Drawing.Point(0, 25);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(138, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(144, 25);
             this.toolStrip2.TabIndex = 6;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -302,7 +270,7 @@
             this.toolStripLabel2});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(138, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(144, 25);
             this.toolStrip4.TabIndex = 5;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -313,26 +281,26 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(72, 22);
             this.toolStripLabel2.Text = "Deployment";
             // 
-            // panel3
+            // ReleasePanel
             // 
-            this.panel3.Controls.Add(this.listBox3);
-            this.panel3.Controls.Add(this.toolStrip6);
-            this.panel3.Controls.Add(this.toolStrip3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(324, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(106, 371);
-            this.panel3.TabIndex = 5;
+            this.ReleasePanel.Controls.Add(this.ReleaseList);
+            this.ReleasePanel.Controls.Add(this.toolStrip6);
+            this.ReleasePanel.Controls.Add(this.toolStrip3);
+            this.ReleasePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReleasePanel.Location = new System.Drawing.Point(339, 3);
+            this.ReleasePanel.Name = "ReleasePanel";
+            this.ReleasePanel.Size = new System.Drawing.Size(106, 411);
+            this.ReleasePanel.TabIndex = 5;
             // 
-            // listBox3
+            // ReleaseList
             // 
-            this.listBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 17;
-            this.listBox3.Location = new System.Drawing.Point(0, 50);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(106, 321);
-            this.listBox3.TabIndex = 4;
+            this.ReleaseList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReleaseList.FormattingEnabled = true;
+            this.ReleaseList.ItemHeight = 17;
+            this.ReleaseList.Location = new System.Drawing.Point(0, 50);
+            this.ReleaseList.Name = "ReleaseList";
+            this.ReleaseList.Size = new System.Drawing.Size(106, 361);
+            this.ReleaseList.TabIndex = 4;
             // 
             // toolStrip6
             // 
@@ -375,14 +343,14 @@
             this.toolStripLabel3.Size = new System.Drawing.Size(46, 22);
             this.toolStripLabel3.Text = "Release";
             // 
-            // panel4
+            // ReleaseDetailPanel
             // 
-            this.panel4.Controls.Add(this.listBox4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(436, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(305, 371);
-            this.panel4.TabIndex = 6;
+            this.ReleaseDetailPanel.Controls.Add(this.listBox4);
+            this.ReleaseDetailPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReleaseDetailPanel.Location = new System.Drawing.Point(451, 3);
+            this.ReleaseDetailPanel.Name = "ReleaseDetailPanel";
+            this.ReleaseDetailPanel.Size = new System.Drawing.Size(306, 411);
+            this.ReleaseDetailPanel.TabIndex = 6;
             // 
             // listBox4
             // 
@@ -391,20 +359,8 @@
             this.listBox4.ItemHeight = 17;
             this.listBox4.Location = new System.Drawing.Point(0, 0);
             this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(305, 371);
+            this.listBox4.Size = new System.Drawing.Size(306, 411);
             this.listBox4.TabIndex = 5;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.ImageIndex = 1;
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(752, 387);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "iOS";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // TabImageList
             // 
@@ -413,41 +369,122 @@
             this.TabImageList.Images.SetKeyName(0, "android16.png");
             this.TabImageList.Images.SetKeyName(1, "ios16.png");
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 50);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(180, 361);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.AndroidAppList);
+            this.panel1.Controls.Add(this.Android);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(174, 174);
+            this.panel1.TabIndex = 2;
+            // 
+            // Android
+            // 
+            this.Android.AutoSize = true;
+            this.Android.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Android.Location = new System.Drawing.Point(0, 0);
+            this.Android.Name = "Android";
+            this.Android.Size = new System.Drawing.Size(93, 19);
+            this.Android.TabIndex = 1;
+            this.Android.TabStop = true;
+            this.Android.Text = "Android Apps";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.iOSAppList);
+            this.panel2.Controls.Add(this.linkLabel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 183);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(174, 175);
+            this.panel2.TabIndex = 3;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.linkLabel1.Location = new System.Drawing.Point(0, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(65, 19);
+            this.linkLabel1.TabIndex = 2;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "iOS Apps";
+            // 
+            // AndroidAppList
+            // 
+            this.AndroidAppList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AndroidAppList.FormattingEnabled = true;
+            this.AndroidAppList.ItemHeight = 17;
+            this.AndroidAppList.Location = new System.Drawing.Point(0, 19);
+            this.AndroidAppList.Name = "AndroidAppList";
+            this.AndroidAppList.Size = new System.Drawing.Size(174, 155);
+            this.AndroidAppList.TabIndex = 2;
+            // 
+            // iOSAppList
+            // 
+            this.iOSAppList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iOSAppList.FormattingEnabled = true;
+            this.iOSAppList.ItemHeight = 17;
+            this.iOSAppList.Location = new System.Drawing.Point(0, 19);
+            this.iOSAppList.Name = "iOSAppList";
+            this.iOSAppList.Size = new System.Drawing.Size(174, 156);
+            this.iOSAppList.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 452);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.Container);
             this.Controls.Add(this.MainToolbar24);
             this.Font = new System.Drawing.Font("Segoe UI", 9.969231F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "CodePush Winform Tools";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainToolbar24.ResumeLayout(false);
             this.MainToolbar24.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.Container.ResumeLayout(false);
             this.AppPanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.AppPanel.PerformLayout();
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.DeploymentPanel.ResumeLayout(false);
+            this.DeploymentPanel.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.ReleasePanel.ResumeLayout(false);
+            this.ReleasePanel.PerformLayout();
             this.toolStrip6.ResumeLayout(false);
             this.toolStrip6.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
-            this.panel4.ResumeLayout(false);
+            this.ReleaseDetailPanel.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,23 +498,19 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ImageList TabImageList;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.TableLayoutPanel AppPanel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel Container;
+        private System.Windows.Forms.Panel AppPanel;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Panel DeploymentPanel;
+        private System.Windows.Forms.ListBox DeploymentList;
+        private System.Windows.Forms.Panel ReleasePanel;
+        private System.Windows.Forms.ListBox ReleaseList;
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel ReleaseDetailPanel;
         private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.ToolStrip toolStrip5;
         private System.Windows.Forms.ToolStripButton toolStripButton13;
@@ -487,6 +520,13 @@
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStrip toolStrip4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox AndroidAppList;
+        private System.Windows.Forms.LinkLabel Android;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ListBox iOSAppList;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

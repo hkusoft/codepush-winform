@@ -20,6 +20,23 @@ namespace codepush_winform
             InitializeComponent();
         }
 
+        void InitAppList()
+        {
+            List<App> Apps = new List<App>();
+            Task t = Task.Run(() =>
+            {
+                Apps = Http.GetAppsAsync().Result;
+                Debug.WriteLine(Apps);
+            });
+
+            t.ContinueWith((t2) => {
+                var a1 = Apps.Where(item => item.os=="Android").ToArray();
+                var a2 = Apps.Where(item => item.os=="iOS").ToArray();
+                AndroidAppList.DataSource = a1;
+                iOSAppList.DataSource = a2;
+                });
+        }
+
         private void Login_Click(object sender, EventArgs e)
         {
             List<App> Apps = null;
@@ -35,6 +52,11 @@ namespace codepush_winform
             {
                 listBox4.Items.Add(item.display_name + " " + item.platform + " " + item.os);
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            InitAppList();
         }
     }
 }

@@ -48,9 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Poco\App.cs" />
     <Compile Include="helper\CodepushHelper.cs" />
     <Compile Include="helper\Http.cs" />
     <Compile Include="helper\JSHelper.cs" />
+    <Compile Include="Poco\User.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

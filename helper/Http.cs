@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace codepush_winform.helper
 {
-    public class Http
+    public partial class Http
     {
         //curl -X GET --header 'Accept: application/json' --header 'X-API-Token: 40abb7297a4f02904832decd9800aa573e4b131f' 
         //'https://api.mobile.azure.com/v0.1/user'
@@ -52,35 +52,6 @@ namespace codepush_winform.helper
             var json =await GetAsync("v0.1/apps");
             var output = JsonConvert.DeserializeObject<List<App>>(json);
             return output;
-        }
-
-
-
-        public class User
-        {
-            public string id { get; set; }
-            public string display_name { get; set; }
-            public string email { get; set; }
-            public string name { get; set; }
-            public object avatar_url { get; set; }
-            public bool can_change_password { get; set; }
-            public string created_at { get; set; }
-            public string origin { get; set; }
-        }
-                
-        public class App
-        {
-            public string id { get; set; }
-            public string app_secret { get; set; }
-            public object description { get; set; }
-            public string display_name { get; set; }
-            public string name { get; set; }
-            public string os { get; set; }
-            public string platform { get; set; }
-            public string origin { get; set; }
-            public object icon_url { get; set; }
-            public User owner { get; set; }
-            public object azure_subscription { get; set; }
         }
     }
 }
