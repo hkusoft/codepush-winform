@@ -28,71 +28,59 @@ namespace codepush_winform
             InitializeComponent();
         }
 
-        void RefreshAppList()
+        async void RefreshAppList()
         {
-            Task t = Task.Run(() =>
-            {
-                user = GetLoginUser().Result;
-                apps = GetAppsAsync().Result;                
-            });
+            SetStatus("Login ... ");
+            user = await GetLoginUser();
+            UserLabel.Text = user.display_name;
 
-            t.ContinueWith((t2) =>
-            {               
-                foreach (var app in apps)
+            SetStatus("Get all apps ... ");
+            apps = await GetAppsAsync();
+
+            foreach (var app in apps)
+            {                
+                AppList.BeginInvoke((Action)(async () =>
                 {
-                    AppList.BeginInvoke((Action)(() =>
-                    {
-                        AppList.Items.Add(app.display_name, app.os == "Android" ? 0 : 1);
-                        RefreshDepolymentList(user.display_name, app);
-                    }));
-
+                    AppList.Items.Add(app.display_name, app.os == "Android" ? 0 : 1);
                     all_apps[app.name] = app;
-                }
-            });
+                    await RefreshDepolymentListAsync(user.display_name, app);
+                }));                
+            }            
         }
 
-        private void RefreshDepolymentList(string owner_name, App app)
+        private void SetStatus(string info)
+        {
+            BeginInvoke((Action)(()=>{
+                StatusLabel.Text = info;
+            }));
+        }
+        private async Task RefreshDepolymentListAsync(string owner_name, App app)
         {
             List<Deployment> deploys = new List<Deployment>();
-            Task t = Task.Run(() =>
-            {
-                deploys = GetDeploymentsAsync(owner_name, app.name).Result;
-                all_deployments[app] = deploys;
+            deploys = await GetDeploymentsAsync(owner_name, app.name);
 
-                foreach (var deployment in deploys)
-                {
-                    RefreshReleaseList(owner_name, app, deployment);
-                }
-                
-            });
+            all_deployments[app] = deploys;
+            SetStatus("Get all deployment for App " + app.display_name);
+            foreach (var deployment in deploys)
+                RefreshReleaseList(owner_name, app, deployment);            
         }
 
-        private void RefreshReleaseList(string owner_name, App app, Deployment deployment)
+        private async void RefreshReleaseList(string owner_name, App app, Deployment deployment)
         {
             List<Release> releases = new List<Release>();
-            Task t = Task.Run(() =>
-            {
-                releases = GetReleasesAsync(owner_name, app.name, deployment.name).Result;
-                all_releases[deployment] = releases;
-            });
-
-        }
-
-        private void Login_Click(object sender, EventArgs e)
-        {
-            List<App> Apps = null;
-            Task t =Task.Run(() =>
-            {
-                Apps = Http.GetAppsAsync().Result;
-                Debug.WriteLine(Apps);
-            });
-
-            t.Wait();            
-        }
+            SetStatus("Get all releases for deployment " + deployment.name);
+            releases = await GetReleasesAsync(owner_name, app.name, deployment.name);
+            releases = releases.OrderByDescending(item => item.upload_time).ToList();
+            all_releases[deployment] = releases;
+        }    
+        
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            RefreshAppList();
+            Task.Run(() => {
+                RefreshAppList();                
+            });
+            
         }
 
         private void AppList_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,18 +107,6 @@ namespace codepush_winform
                     ReleaseList.DataSource = selected_releases;
                 }
             }
-        }
-
-        private void ReleaseList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ReleaseList.SelectedItems.Count > 0)
-            {
-                var selected_release = ReleaseList.SelectedItems[0] as Release;
-                if (selected_release != null)
-                {
-                    ReleaseDetailPropertyGrid.SelectedObject = selected_release;
-                }
-            }
-        }
+        }     
     }
 }
