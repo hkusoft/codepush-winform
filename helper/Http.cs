@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
-using System.Diagnostics;
 using Newtonsoft.Json;
 
 namespace codepush_winform.helper
@@ -19,37 +16,81 @@ namespace codepush_winform.helper
         static Uri url_base = new Uri("https://api.mobile.azure.com/");
 
 
-
+        /// <summary>
+        /// This function fires an Http Get and get the raw resoonse in string
+        /// </summary>
+        /// <param name="base_url">e.g. new Uri("https://api.mobile.azure.com/"); </param>
+        /// <param name="url_endpoint_path">e.g. "v0.1/user/whatever/endpoint"</param>
+        /// <param name="requestHedaderInfo"> A dictionary of request header</param>
+        /// <returns>
+        ///     Tast<string> response.
+        ///     Use response.Result to get the response string, note that Accessing the property's 
+        ///     get accessor (i.e. response.Result) blocks the calling thread until the asynchronous 
+        ///     operation is complete; it is equivalent to calling the Wait method
+        ///     See also: https://msdn.microsoft.com/en-us/library/dd321468(v=vs.110).aspx
+        /// </returns>
+        /// Example:
+        ///     var url_base = new Uri("https://api.mobile.azure.com/");
+        ///     var endpoint_path = "v0.1/user";
+        ///     var header = new Dictionary<string, string>()
+        ///     {
+        ///         { "X-API-Token", "abcdefghhijgkfdk;slkflkorwkvokrgowko" }
+        ///     };
+        ///     
+        ///     Task<string> response; 
+        ///     //Accessing Result in another Task makes the UI responsive
+        ///     Task t = Task.Run(() =>  
+        ///     {
+        ///         response = HttpGet(url_base, endpoint_path, header).Result;
+        ///     });
+        ///     //Get Result when the task is done
+        ///     t.ContinueWith((t2) =>  
+        ///     {               
+        ///         Console.Writeline(response);
+        ///     });
+        public static async Task<string> HttpGet(Uri base_url, string url_endpoint_path, 
+            Dictionary<string, string> requestHedaderInfo = null)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = base_url;
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                foreach (var item in requestHedaderInfo)
+                {
+                    client.DefaultRequestHeaders.Add(item.Key, item.Value);
+                }               
+                
+                var response = await client.GetStringAsync(url_endpoint_path); 
+                return response;
+            }
+        }
 
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="endpoint">e.g. "/Membership/exists" or "/account"</param>
+        /// <param name="path"> Endpoint path, e.g. "/Membership/exists" or "/account"</param>
         /// <returns></returns>
-        public static async Task<string> GetAsync(string path)
-        { 
-            using (var client = new HttpClient())
+        public static async Task<string> HttpGet(string path)
+        {
+            var header = new Dictionary<string, string>()
             {
-                client.BaseAddress = url_base;
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.TryAddWithoutValidation("X-API-Token", "40abb7297a4f02904832decd9800aa573e4b131f");
-
-                var response = await client.GetStringAsync(path); //.Result;
-                return response;
-            }
+                { "X-API-Token", "40abb7297a4f02904832decd9800aa573e4b131f" }
+            };
+            var response = await HttpGet(url_base, path, header);
+            return response;            
         }
 
         public static async Task<User> GetLoginUser()
         {
-            var json = await GetAsync("v0.1/user");
+            var json = await HttpGet("v0.1/user");
             var output = JsonConvert.DeserializeObject<User>(json);
             return output; // !=null? output.display_name: null;
         }
         
         public static async Task<List<App>> GetAppsAsync()
         {
-            var json =await GetAsync("v0.1/apps");
+            var json =await HttpGet("v0.1/apps");
             var output = JsonConvert.DeserializeObject<List<App>>(json);
             return output;
         }
@@ -58,7 +99,7 @@ namespace codepush_winform.helper
         {
             //v0.1/apps/cityuxykou/idemo/deployments'
             var path = string.Format("v0.1/apps/{0}/{1}/deployments", owner_name, app_name);
-            var json = await GetAsync(path);
+            var json = await HttpGet(path);
             var output = JsonConvert.DeserializeObject<List<Deployment>>(json);
             return output;
         }
@@ -68,7 +109,7 @@ namespace codepush_winform.helper
         {
             //v0.1/apps/cityuxykou/idemo/deployments'
             var path = string.Format("v0.1/apps/{0}/{1}/deployments/{2}/releases", owner_name, app_name, deployment_name);
-            var json = await GetAsync(path);
+            var json = await HttpGet(path);
             var output = JsonConvert.DeserializeObject<List<Release>>(json);
             return output;
         }
